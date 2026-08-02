@@ -1,0 +1,391 @@
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - ESTRO</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/ESTRO.styles.css"
+          asp-append-version="true" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm">
+
+
+            <<div class="container-fluid px-4">
+
+                <!-- LOGO -->
+
+                <a class="navbar-brand fw-bold"
+                   asp-controller="Home"
+                   asp-action="Index">
+
+                    ESTRO
+
+                </a>
+
+                <!-- MOBILE BUTTON -->
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <!-- NAVBAR CONTENT -->
+
+                <div class="collapse navbar-collapse"
+                     id="navbarContent">
+
+                    <!-- MENU -->
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white"
+                               asp-controller="Wishlist"
+                               asp-action="Index">
+                                Wishlist
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white"
+                               asp-controller="Home"
+                               asp-action="Index">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white"
+                               asp-controller="Products"
+                               asp-action="Category"
+                               asp-route-category="Men">
+                                Men
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white"
+                               asp-controller="Products"
+                               asp-action="Category"
+                               asp-route-category="Women">
+                                Women
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white"
+                               asp-controller="Products"
+                               asp-action="Category"
+                               asp-route-category="Accessories">
+                                Accessories
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white"
+                               asp-controller="Checkout"
+                               asp-action="MyOrders">
+                                My Orders
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle text-white"
+                               href="#"
+                               role="button"
+                               data-bs-toggle="dropdown">
+
+                                Categories
+
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Products"
+                                       asp-action="Category"
+                                       asp-route-category="Oversized T-Shirt">
+                                        Oversized T-Shirt
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Products"
+                                       asp-action="Category"
+                                       asp-route-category="Polo T-Shirt">
+                                        Polo T-Shirt
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Products"
+                                       asp-action="Category"
+                                       asp-route-category="Panjabi">
+                                        Panjabi
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Products"
+                                       asp-action="Category"
+                                       asp-route-category="Hand Painted Shari">
+                                        Hand Painted Shari
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Products"
+                                       asp-action="Category"
+                                       asp-route-category="Shirt Pant">
+                                        Shirt Pant
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-white"
+                               asp-controller="Cart"
+                               asp-action="Index">
+
+                                Cart
+
+                                @{
+                                    var cartCount =
+                                    Context.Session.GetInt32("CartCount") ?? 0;
+                                }
+
+                                @if (cartCount > 0)
+                                {
+                                    <span class="badge bg-danger">
+                                        @cartCount
+                                    </span>
+                                }
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Products"
+                                       asp-action="Category"
+                                       asp-route-category="Oversized T-Shirt">
+
+                                        Oversized T-Shirt
+
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Products"
+                                       asp-action="Category"
+                                       asp-route-category="Polo T-Shirt">
+
+                                        Polo T-Shirt
+
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Products"
+                                       asp-action="Category"
+                                       asp-route-category="Panjabi">
+
+                                        Panjabi
+
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Products"
+                                       asp-action="Category"
+                                       asp-route-category="Hand Painted Shari">
+
+                                        Hand Painted Shari
+
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Products"
+                                       asp-action="Category"
+                                       asp-route-category="Shirt Pant">
+
+                                        Shirt Pant
+
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="Checkout"
+                                       asp-action="MyOrders">
+
+                                        My Orders
+
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                    </ul>
+
+                    <!-- SEARCH -->
+
+                    <form class="d-flex me-3"
+                          style="width:220px;"
+                          asp-controller="Products"
+                          asp-action="Search"
+                          method="get">
+
+                        <input class="form-control form-control-sm me-2"
+                               type="search"
+                               name="searchTerm"
+                               placeholder="Search..." />
+
+                        <button class="btn btn-light btn-sm"
+                                type="submit">
+
+                            Search
+
+                        </button>
+
+                    </form>
+
+                    <!-- LOGIN -->
+
+                    <partial name="_LoginPartial" />
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- BODY -->
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer class="footer-section mt-5">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <h2>ESTRO</h2>
+
+                <p>
+                    Modern Fashion & Lifestyle Brand
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a asp-controller="Products"
+                   asp-action="Category"
+                   asp-route-category="Men">
+
+                    Men
+
+                </a>
+
+                <a asp-controller="Products"
+                   asp-action="Category"
+                   asp-route-category="Women">
+
+                    Women
+
+                </a>
+
+                <a asp-controller="Products"
+                   asp-action="Category"
+                   asp-route-category="Accessories">
+
+                    Accessories
+
+                </a>
+
+            </div>
+
+            <div class="footer-contact">
+
+                <h4>Contact</h4>
+
+                <p>Dhaka, Bangladesh</p>
+
+                <p>support@estro.com.bd</p>
+
+            </div>
+
+        </div>
+
+        <div class="text-center mt-4 pb-3 text-white">
+
+            &copy; 2026 ESTRO — All Rights Reserved
+
+        </div>
+
+    </footer>
+
+    <!-- SCRIPTS -->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js"
+            asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
