@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ESTRO Admin Panel</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css" />
+
+    <style>
+
+        body {
+            margin: 0;
+            background: #f5f5f5;
+            font-family: Arial;
+        }
+
+        .admin-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: black;
+            color: white;
+            padding: 30px 20px;
+        }
+
+            .sidebar h2 {
+                font-weight: bold;
+                margin-bottom: 40px;
+            }
+
+            .sidebar a {
+                display: block;
+                color: white;
+                text-decoration: none;
+                padding: 14px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                transition: 0.3s;
+            }
+
+                .sidebar a:hover {
+                    background: #222;
+                }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .topbar {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .dashboard-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+            .dashboard-card h3 {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+
+            .dashboard-card h1 {
+                font-size: 42px;
+                font-weight: bold;
+            }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="admin-wrapper">
+
+        <!-- SIDEBAR -->
+
+        <div class="sidebar">
+
+            <h2>ESTRO Admin</h2>
+
+            <a asp-controller="Admin"
+               asp-action="Dashboard">
+
+                Dashboard
+
+            </a>
+
+            <a asp-controller="Admin"
+               asp-action="Orders">
+
+                Orders
+
+            </a>
+
+            <a asp-controller="Products"
+               asp-action="Create">
+
+                Add Product
+
+            </a>
+
+            <a asp-controller="Admin"
+               asp-action="Inventory">
+
+                Inventory
+
+            </a>
+
+            <a asp-controller="Admin"
+               asp-action="SalesReport">
+
+                Sales Report
+
+            </a>
+
+            <a asp-controller="Categories"
+               asp-action="Index">
+
+                Categories
+
+            </a>
+
+            <a asp-area="Identity"
+               asp-page="/Account/Logout">
+
+                Logout
+
+            </a>
+
+        </div>
+
+        <!-- MAIN CONTENT -->
+
+        <div class="main-content">
+
+            <div class="topbar">
+
+                <h3>
+                    ESTRO Admin Dashboard
+                </h3>
+
+                <div>
+                    Welcome Admin
+                </div>
+
+            </div>
+
+            @RenderBody()
+
+        </div>
+
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
