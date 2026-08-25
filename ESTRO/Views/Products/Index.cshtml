@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ESTRO.Models.Product>
+
+<h1 class="text-center mt-5">
+    ESTRO Products
+</h1>
+
+<div class="products-grid">
+
+    @foreach (var product in Model)
+    {
+        <div class="product-card">
+
+            <img src="@product.ImageUrl" />
+
+            <h3>@product.Name</h3>
+
+            <p>৳ @product.Price</p>
+
+            <a class="btn btn-dark m-3"
+               asp-controller="Products"
+               asp-action="Details"
+               asp-route-id="@product.Id">
+
+                View Product
+
+            </a>
+
+        </div>
+    }
+
+</div>

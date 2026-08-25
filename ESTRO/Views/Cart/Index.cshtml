@@ -1,0 +1,87 @@
+﻿@model List<ESTRO.Models.CartItem>
+
+<h1 class="text-center mt-5">
+    Shopping Cart
+</h1>
+
+<div class="container mt-5">
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            Your cart is empty.
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.Product?.Name</td>
+
+                        <td>৳ @item.Product?.Price</td>
+
+                        <td>@item.Quantity</td>
+
+                        <td>
+                            ৳ @((item.Product?.Price ?? 0) * item.Quantity)
+                        </td>
+
+                        <td>
+
+                            <a class="btn btn-danger btn-sm"
+                               asp-controller="Cart"
+                               asp-action="Remove"
+                               asp-route-id="@item.Id">
+
+                                Remove
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+        <div class="text-end">
+
+            <h4>
+                Total:
+                ৳ @Model.Sum(i => (i.Product?.Price ?? 0) * i.Quantity)
+            </h4>
+
+        </div>
+
+        <div class="text-end mt-3">
+
+            <a class="btn btn-dark"
+               asp-controller="Checkout"
+               asp-action="Index">
+
+                Proceed To Checkout
+
+            </a>
+
+        </div>
+    }
+
+</div>

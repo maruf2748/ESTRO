@@ -1,0 +1,133 @@
+﻿@{
+    ViewData["Title"] = "ESTRO";
+}
+
+<!-- HERO SECTION -->
+
+<section class="hero-section text-white d-flex align-items-center justify-content-center">
+
+    <div class="text-center">
+
+        <h1 class="display-1 fw-bold">
+            ESTRO
+        </h1>
+
+        <p class="lead mt-4">
+            Fashion That Defines You
+        </p>
+
+        <a asp-controller="Products"
+           asp-action="Index"
+           class="btn btn-light btn-lg mt-4">
+
+            Shop Now
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- CATEGORY SECTION -->
+
+<section class="container-fluid px-5 mt-5">
+
+    <h2 class="text-center mb-5">
+        Shop By Category
+    </h2>
+
+    <div class="row g-4">
+
+        <!-- OVERSIZED -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow border-0 h-100">
+
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518"
+                     class="card-img-top"
+                     height="400"
+                     style="object-fit:cover;" />
+
+                <div class="card-body text-center">
+
+                    <h4>Oversized T-Shirts</h4>
+
+                    <a asp-controller="Products"
+                       asp-action="Category"
+                       asp-route-category="Oversized T-Shirt"
+                       class="btn btn-dark mt-3">
+
+                        Explore
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PANJABI -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow border-0 h-100">
+
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
+                     class="card-img-top"
+                     height="400"
+                     style="object-fit:cover;" />
+
+                <div class="card-body text-center">
+
+                    <h4>Panjabi Collection</h4>
+
+                    <a asp-controller="Products"
+                       asp-action="Category"
+                       asp-route-category="Panjabi"
+                       class="btn btn-dark mt-3">
+
+                        Explore
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- SHARI -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow border-0 h-100">
+
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
+                     class="card-img-top"
+                     height="400"
+                     style="object-fit:cover;" />
+
+                <div class="card-body text-center">
+
+                    <h4>Hand Painted Shari</h4>
+
+                    <a asp-controller="Products"
+                       asp-action="Category"
+                       asp-route-category="Hand Painted Shari"
+                       class="btn btn-dark mt-3">
+
+                        Explore
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

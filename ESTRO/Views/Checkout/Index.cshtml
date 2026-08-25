@@ -1,0 +1,87 @@
+﻿@model ESTRO.Models.Order
+
+<h1 class="text-center mt-5">
+    Checkout
+</h1>
+
+<div class="container mt-5">
+
+    <form asp-action="Index" method="post">
+
+        <div asp-validation-summary="All"
+             class="text-danger mb-3">
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="CustomerName"></label>
+
+            <input asp-for="CustomerName"
+                   class="form-control" />
+
+            <span asp-validation-for="CustomerName"
+                  class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="PhoneNumber"></label>
+
+            <input asp-for="PhoneNumber"
+                   class="form-control" />
+
+            <span asp-validation-for="PhoneNumber"
+                  class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="Address"></label>
+
+            <textarea asp-for="Address"
+                      class="form-control">
+            </textarea>
+
+            <span asp-validation-for="Address"
+                  class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="PaymentMethod"></label>
+
+            <select asp-for="PaymentMethod"
+                    class="form-control">
+
+                <option value="">Select Payment Method</option>
+                <option>Cash On Delivery</option>
+                <option>bKash</option>
+                <option>Nagad</option>
+
+            </select>
+
+            <span asp-validation-for="PaymentMethod"
+                  class="text-danger"></span>
+
+        </div>
+
+        <button type="submit"
+                class="btn btn-dark">
+
+            Place Order
+
+        </button>
+
+    </form>
+
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

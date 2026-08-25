@@ -1,0 +1,124 @@
+﻿@model IEnumerable<ESTRO.Models.Product>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="dashboard-cards">
+
+    <div class="dashboard-card">
+
+        <h3>Total Products</h3>
+
+        <h1>
+            @Model.Count()
+        </h1>
+
+    </div>
+
+    <div class="dashboard-card">
+
+        <h3>Total Orders</h3>
+
+        <h1>
+            25
+        </h1>
+
+    </div>
+
+    <div class="dashboard-card">
+
+        <h3>Total Sales</h3>
+
+        <h1>
+            ৳ 85K
+        </h1>
+
+    </div>
+
+    <div class="dashboard-card">
+
+        <h3>Low Stock</h3>
+
+        <h1>
+            4
+        </h1>
+
+    </div>
+
+</div>
+
+<div class="mt-5">
+
+    <h3 class="mb-4">
+        Product Management
+    </h3>
+
+    <table class="table table-bordered bg-white">
+
+        <thead>
+
+            <tr>
+
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var product in Model)
+            {
+                <tr>
+
+                    <td>
+                        <img src="@product.ImageUrl"
+                             width="70"
+                             height="70"
+                             style="object-fit:cover;" />
+                    </td>
+
+                    <td>@product.Name</td>
+
+                    <td>@product.Category</td>
+
+                    <td>৳ @product.Price</td>
+
+                    <td>@product.Stock</td>
+
+                    <td>
+
+                        <a asp-controller="Products"
+                           asp-action="Edit"
+                           asp-route-id="@product.Id"
+                           class="btn btn-dark btn-sm">
+
+                            Edit
+
+                        </a>
+
+                        <a asp-controller="Products"
+                           asp-action="Delete"
+                           asp-route-id="@product.Id"
+                           class="btn btn-danger btn-sm">
+
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

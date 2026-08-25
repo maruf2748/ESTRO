@@ -1,0 +1,92 @@
+﻿@model ESTRO.Models.Product
+
+<h1 class="text-center mt-5">
+    Add Product
+</h1>
+
+<div class="container mt-5">
+
+    <form asp-action="Create"
+          enctype="multipart/form-data">
+
+        <div class="mb-3">
+            <label>Product Name</label>
+
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Description</label>
+
+            <textarea asp-for="Description"
+                      class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Price</label>
+
+            <input asp-for="Price"
+                   class="form-control" />
+        </div>
+
+        <div class="mb-3">
+
+            <label>Product Image</label>
+
+            <input type="file"
+                   name="imageFile"
+                   class="form-control" />
+
+        </div>
+
+        <div class="mb-3">
+            <label>Category</label>
+
+            <select asp-for="Category" class="form-select">
+
+                <option value="">
+                    Select Category
+                </option>
+
+                <option value="Oversized T-Shirt">
+                    Oversized T-Shirt
+                </option>
+
+                <option value="Polo T-Shirt">
+                    Polo T-Shirt
+                </option>
+
+                <option value="Panjabi">
+                    Panjabi
+                </option>
+
+                <option value="Hand Painted Shari">
+                    Hand Painted Shari
+                </option>
+
+                <option value="Shirt Pant">
+                    Shirt Pant
+                </option>
+
+                <option value="Accessories">
+                    Accessories
+                </option>
+
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Stock</label>
+
+            <input asp-for="Stock"
+                   class="form-control" />
+        </div>
+
+        <button type="submit"
+                class="btn btn-dark">
+            Add Product
+        </button>
+
+    </form>
+
+</div>
