@@ -1,0 +1,58 @@
+﻿@model ESTRO.Models.Product
+
+<h1 class="text-center mt-5">
+    Edit Product
+</h1>
+
+<div class="container mt-5">
+
+    <form asp-action="Edit">
+
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label>Name</label>
+            <input asp-for="Name"
+                   class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Description</label>
+            <textarea asp-for="Description"
+                      class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Price</label>
+            <input asp-for="Price"
+                   class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Image URL</label>
+            <input asp-for="ImageUrl"
+                   class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Category</label>
+            <input asp-for="Category"
+                   class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Stock</label>
+            <input asp-for="Stock"
+                   class="form-control" />
+        </div>
+
+        <button type="submit"
+                class="btn btn-dark">
+
+            Update Product
+
+        </button>
+
+    </form>
+
+</div>
