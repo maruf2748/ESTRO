@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ESTRO.Models.Order>
+
+<h2 class="mt-4 mb-4">
+    My Orders
+</h2>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Order No</th>
+            <th>Status</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderNumber</td>
+                <td>@order.Status</td>
+                <td>৳ @order.TotalAmount</td>
+                <td>@order.OrderDate</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
